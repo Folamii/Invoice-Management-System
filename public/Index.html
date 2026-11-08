@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Invoice Generator</h1>
+        </header>
+
+        <main>
+            <section class="item-selection">
+                <h2>Add Items to Invoice</h2>
+                <div class="form-group">
+                    <label for="itemSelect">Select Item:</label>
+                    <select id="itemSelect">
+                        <option value="">-- Select an item --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" value="1">
+                </div>
+                <button id="addItemBtn" class="btn btn-primary">Add to Invoice</button>
+            </section>
+
+            <section class="invoice-items">
+                <h2>Invoice Items</h2>
+                <div id="invoiceItemsList">
+                    <p class="empty-message">No items added yet</p>
+                </div>
+            </section>
+
+            <section class="invoice-summary" id="invoiceSummary" style="display: none;">
+                <h2>Invoice Summary</h2>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (<span id="taxRate">10</span>%):</span>
+                        <span id="taxAmount">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shippingCost">$0.00</span>
+                    </div>
+                    <div class="summary-row discount-row" id="discountRow" style="display: none;">
+                        <span>Discount (<span id="discountRate">10</span>%):</span>
+                        <span id="discountAmount">-$0.00</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Total:</span>
+                        <span id="totalAmount">$0.00</span>
+                    </div>
+                </div>
+                <button id="finalizeBtn" class="btn btn-success">Finalize Order</button>
+            </section>
+
+            <section class="final-invoice" id="finalInvoice" style="display: none;">
+                <h2>Invoice Details</h2>
+                <div id="invoiceContent"></div>
+                <button id="downloadBtn" class="btn btn-primary">Download Invoice (CSV)</button>
+                <button id="newInvoiceBtn" class="btn btn-secondary">New Invoice</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
